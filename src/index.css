@@ -19,9 +19,9 @@ code {
 }
 
 .top-nav{
-  display: flex;
+    display: flex;
     justify-content: space-between;
-    position: sticky;
+    position: sticky !important;
     top: 0;
     z-index: 5;
     background-color: #FFE475;
@@ -50,6 +50,8 @@ code {
 .navbar-list{
   padding: 10px;
   margin: 2px 8px;
+  /* background: #5DA9E9; */
+  border-radius: 10px;
   /* width: 120px; */
   /* height: 22px; */
   font-weight: 800;
@@ -81,6 +83,10 @@ code {
   align-items: center; */
   font-size: 30px;
   color: white;
+}
+
+section{
+  overflow-y: scroll;
 }
 
 .section{
@@ -119,4 +125,22 @@ code {
   font-size: 16px;
   line-height: 140%;
   color: #B6BAC3;
+}
+
+.side-nav{
+  position: sticky;
+  top: 0;
+
+}
+
+.side-nav::-webkit-scrollbar{
+  width: 8px;
+  height: 301px;
+  left: calc(50% - 8px/2 + 0.5px);
+  top: 1px;
+
+  /* Secondary/Blue */
+
+  background: #5DA9E9;
+  border-radius: 4px;
 }

@@ -44,7 +44,7 @@ const Feed = () => {
     }
 
   return (
-    <Box sx={{height:"90vh", width:{md:"80%",sm:"100%",overflow:"scroll"}}}>
+    <Box id="productBody">
       {sectext.map((text,i)=>{
         return <section id={text.toLowerCase()}>
             <div className='section'>{text} {">"}</div>

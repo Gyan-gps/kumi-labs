@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const navtext = ["Produce",
     "Prepared foods",
@@ -21,19 +21,38 @@ const navtext = ["Produce",
 ]
 
 const Navbar = () => {
+
+  const [highlight,setHighlight] = useState("produce");
+
+  useEffect(()=>{
+    let sections=document.getElementsByTagName("section");
+    window.addEventListener("scroll",(e)=>{
+      let scrollY = window.pageYOffset;
+      for(let current of sections){
+          const sectionHeight = current.offsetHeight;
+          let sectionTop = current.offsetTop - 50;
+          let sectionId = current.id;
+  
+          if(scrollY>sectionTop && scrollY<=sectionTop+sectionHeight){
+            setHighlight(sectionId);
+          }
+        }
+      
+    })
+  },[])
   return (
-    <Box sx={{height:{md:"90vh",sm:"40px"},isplay:'flex',flexDirection:{sm:"column"}, width:{md:"20%",sm:"100%"},overflowY:{md:"scroll",sm:"none"},overflowX:{md:'none',sm:'scroll'}}}>
-      {/* <div> */}
+    <div className='side-nav' >
+      <Box sx={{display:"flex",flexDirection:{xs:"row",md:"column"}, overflowY:{xs:"scroll",md:"none"}}}>
         {
             navtext.map((text,i)=>{
-                return<div className="navbar-list" key={i.toString()} id={text}>
+                return<div className="navbar-list" key={i.toString()} id={text} style={{backgroundColor:highlight===text.toLowerCase() ? "#5DA9E9":"",color:highlight===text.toLowerCase() ? "white":"black"}}>
                     <a href={"#"+text.toLowerCase()}>{text}</a>
                 </div>
             })
         }
-      {/* </div> */}
+      </Box>
       {/* <div>Cart</div> */}
-    </Box>
+    </div>
   )
 }
 
