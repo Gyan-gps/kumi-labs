@@ -1,25 +1,21 @@
-import { Box } from '@mui/material'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { products } from '../../constant/Product'
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../../redux/action'
-const sectext = ["Produce",
+const sectext = [
+    "Produce",
     "Prepared foods",
     "Canned foods & Soups",
-    "Produce",
     "Bakery",
     "Diary & Eggs",
     "Frozen",
     "Meat & Seafood",
-    "Bakery",
-    "Diary & Eggs",
-    "Prepared foods",
-    "Canned foods & Soups",
-    "Produce",
-   "Bakery",
-    "Diary & Eggs",
-    "Frozen",
-    "Meat & Seafood"
+    "Item 1",
+    "Item 2",
+    "Item 3",
+    "Item 4",
+    "Item 5",
+    "Item 6",
 ]
 const Feed = () => {
 
@@ -44,7 +40,7 @@ const Feed = () => {
     }
 
   return (
-    <Box id="productBody">
+    <div id="productBody">
       {sectext.map((text,i)=>{
         return <section id={text.toLowerCase()}>
             <div className='section'>{text} {">"}</div>
@@ -61,34 +57,10 @@ const Feed = () => {
                         </div>
                     })
                 }
-                {
-                    productsARR.map((product)=>{
-                        return<div className='card'>
-                            <div style={{position:"relative"}}><img  className='img' src={product.img} alt={product.name}  height="120px"/>
-                            {product.isCart?<button className='btn-cart' onClick={()=>removeFromCart(product)}>-</button>:<button className='btn-cart' onClick={()=>addToCart(product)}>+</button>}
-                            </div>
-                            <div  className='price'>{product.price}</div>
-                            <div className='name'>{product.name}</div>
-                            <div className='weight'>{product.weight}</div>
-                        </div>
-                    })
-                }
-                {/* {
-                    productsARR.map((product)=>{
-                        return<div className='card'>
-                            <div style={{position:"relative"}}><img className='img' src={product.img} alt={product.name} height="120px"/>
-                            {product.isCart?<button className='btn-cart' onClick={()=>removeFromCart(product)}>-</button>:<button className='btn-cart' onClick={()=>addToCart(product)}>+</button>}
-                            </div>
-                            <div  className='price'>{product.price}</div>
-                            <div className='name'>{product.name}</div>
-                            <div className='weight'>{product.weight}</div>
-                        </div>
-                    })
-                } */}
             </div>
         </section>
       })}
-    </Box>
+    </div>
   )
 }
 
