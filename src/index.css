@@ -11,11 +11,31 @@ a:link{
 }
 *::-webkit-scrollbar{
   display: none;
+  height: 100px;
+}
+.nav-list::-webkit-scrollbar{
+  display: block !important;
+  width: 8px;
+}
+.nav-list::-webkit-scrollbar-thumb {
+  /* height: 100px; */
+  background: #40D589;
+  border-radius: 8px;
+}
+
+.nav-list::-webkit-scrollbar-track {
+  height: 100px;
+  /* background: #40D589;
+  border-radius: 8px; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.flex{
+  display: flex;
 }
 
 .topnav{
@@ -31,20 +51,16 @@ code {
   height: 100px;
 }
 .nav{
-  position: fixed;
-  /* display: inline-block; */
+  position: sticky;
   top:100px;
-  /* background-color: gray; */
   width: 25%;
-  z-index: 5;
+  z-index: 2;
+  height: 100%;
   background-color: #FFFFFF;
 }
 .feed{
-  display: inline-block;
-  height: 800px;
-  margin-left: 25%;
-  /* background-color: green; */
-  width: 100%;
+  width: 75%;
+  /* padding: 10px; */
 }
 
 .nav-list{
@@ -55,7 +71,6 @@ code {
 .logo{
   font-weight: 700;
   font-size: 30px;
-  /* line-height: 80px; */
 }
 
 .navcart{
@@ -75,12 +90,13 @@ code {
   border-radius: 10px;
   font-weight: 800;
   font-size: 16px;
-  line-height: 140%;
+  line-height: 110%;
+  
 }
 
 .product{
   display: flex;
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
 }
 
 .img{
@@ -139,13 +155,15 @@ section{
 
 
 @media screen and (max-width:600px){
-  /* display: inline-block; */
-  .topnav{
-    position: sticky;
-    top: 0;
+  .flex{
+    display: flex;
+    flex-direction: column;
   }
   .nav,.feed{
     width: 100%;
+  }
+  .nav{
+    top: 80px;
   }
   .nav-list{
     display: flex;
@@ -155,8 +173,14 @@ section{
     height: auto;
     overflow-x: scroll;
   }
-  .feed{    
-    margin-left: 0px;
-    margin-top: 100px;
+  .topnav{
+    height: 80px;
+  }
+  .navbar-list{
+    line-height: 100%;
+  }
+  .nav-list::-webkit-scrollbar{
+    display: none !important;
+    width: 8px;
   }
 }

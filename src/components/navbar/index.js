@@ -14,6 +14,12 @@ const navtext = [
   "Item 4",
   "Item 5",
   "Item 6",
+  "Item 7",
+  "Item 8",
+  "Item 9",
+  "Item 10",
+  "Item 11",
+  "Item 12",
 ]
 
 const Navbar = () => {
@@ -27,7 +33,7 @@ const Navbar = () => {
       let scrollY = window.pageYOffset;
       for(let current of sections){
           const sectionHeight = current.offsetHeight;
-          let sectionTop = current.offsetTop - 180;
+          let sectionTop = current.offsetTop - 200;
           let sectionId = current.id;
   
           if(scrollY>sectionTop && scrollY<=sectionTop+sectionHeight){
